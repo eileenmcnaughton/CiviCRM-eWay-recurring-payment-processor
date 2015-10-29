@@ -10,6 +10,9 @@
  */
 function encryptField(field, apiKey) {
   var existingValue = field.val();
+  if (existingValue == "") {
+    return;
+  }
   if (isFieldEncrypted(field)) {
     return;
   }
@@ -52,5 +55,3 @@ cj('#crm-main-content-wrapper form').submit(function() {
     encryptField(cj('#cvv2'), CRM.eway.ewayKey);
   }
 );
-
-
