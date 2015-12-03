@@ -50,7 +50,7 @@ function isFieldEncrypted(field) {
 hideEncryptedFields(cj('#credit_card_number'));
 hideEncryptedFields(cj('#cvv2'));
 
-cj('#crm-main-content-wrapper form').submit(function() {
+cj(CRM.eway.formSelector).submit(function() {
     encryptField(cj('#credit_card_number'), CRM.eway.ewayKey);
     encryptField(cj('#cvv2'), CRM.eway.ewayKey);
   }
