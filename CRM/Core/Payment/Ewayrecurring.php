@@ -690,6 +690,12 @@ class CRM_Core_Payment_Ewayrecurring extends CRM_Core_Payment {
 
     $eWAYRequest->CustomerIPAddress($params['ip_address']);
 
+    // Webform CiviCRM has $params['invoiceID'] as
+    // $params['invoice_id'].
+    if (!isset($params['invoiceID']) && isset($params['invoice_id'])) {
+        $params['invoiceID'] = $params['invoice_id'];
+    }
+
     // Allow further manipulation of the arguments via custom hooks ..
     CRM_Utils_Hook::alterPaymentProcessorParams($this, $params, $eWAYRequest);
 
